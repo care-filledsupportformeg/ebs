@@ -2,12 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
-    const mobileMenuButton = document.querySelector('.mobile-menu-button');
-    const mainNav = document.querySelector('.main-nav');
+    const mobileMenuButton = document.querySelector('.mobile-menu-btn');
+    const mobileNav = document.querySelector('.mobile-nav'); // Changed variable name and selector
     
-    if (mobileMenuButton && mainNav) {
+    if (mobileMenuButton && mobileNav) { // Used updated variable name
         mobileMenuButton.addEventListener('click', function() {
-            mainNav.classList.toggle('open');
+            mobileNav.classList.toggle('active'); // Used updated variable name and toggled 'active' class
         });
     }
     
@@ -56,8 +56,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Close mobile menu if open
-                if (mainNav.classList.contains('open')) {
-                    mainNav.classList.remove('open');
+                // Ensure mobileNav is defined here or passed correctly if needed in this scope
+                const mobileNav = document.querySelector('.mobile-nav'); // Re-selecting or ensuring scope
+                if (mobileNav && mobileNav.classList.contains('active')) { // Check updated class
+                    mobileNav.classList.remove('active'); // Use updated class
                 }
             }
         });
